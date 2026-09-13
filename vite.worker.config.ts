@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  ssr: { noExternal: ['linkedom'] },
   build: {
     emptyOutDir: false,
     ssr: 'src/worker.ts',
