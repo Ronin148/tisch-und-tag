@@ -22,6 +22,16 @@ Persönliches Rezeptbuch als deutschsprachige, mobile Web-App. Für Safari auf d
 - Meal Prep: Essens- und Kochtage, Portionen je Mahlzeit und Vorkochrunden mit Gesamtmenge. KI-Meal-Prep gruppiert wiederholte Gerichte in der Wochenhälfte. Die Einkaufsliste zählt die verzehrten Portionen genau einmal.
 - Kochmodus mit einzelnen grossen Schritten, Zutaten nach Portionen, mehreren pausierbaren Timern und Screen Wake Lock, soweit unterstützt. Timer verwenden Endzeitpunkte und behalten beim Schrittwechsel ihre Restzeit; Töne bei Hintergrund/gesperrtem Telefon sind nicht garantiert. Sitzung und Timer werden im Browser-Tab wiederhergestellt.
 
+## UX-Verbesserungen nach dem Handytest
+
+- Kompakte Rezeptübersicht mit Suche, Foto/Link/Text und aufklappbaren Filtern. Rezeptnamen übernehmen wieder die grössere Überschriftenschrift. Touch-Navigation und mindestens 44 px hohe Filter bleiben im schmalen Querformat erhalten.
+- Profilentwürfe bleiben beim Bereichswechsel erhalten, werden nach Möglichkeit im selben Browser-Tab zwischengespeichert und vor dem Schliessen gewarnt. Speichern und Verwerfen sind sichtbar. Änderungen auf einem anderen Gerät werden weiterhin auf Konflikte geprüft.
+- Vorräte lassen sich bearbeiten. Die Einkaufsliste zeigt Wochenbedarf, abgezogenen Vorrat und Restmenge. Der Abzug lässt sich ausschalten. Er gilt für die ausgewählte Woche, reserviert keine Bestände über mehrere Wochen und verändert den Vorrat nicht; Verbrauch nach dem Kochen manuell anpassen.
+- Vorratsabzug nur bei gleichem Lebensmittelnamen und passenden Einheiten; kg/g und l/ml werden umgerechnet. Unklare Mengen und vor dem benötigten Datum ablaufende Vorräte bleiben unberücksichtigt. Keine Umrechnung zwischen Packungen, Gewicht und Volumen ohne belastbare Angaben.
+- Saison- und Vorratstreffer erkennen Lebensmittelwörter statt beliebiger Wortteile; Knoblauch/Bärlauch zählen nicht als Lauch. Optionale Alternativen zählen nicht als saisonale Hauptzutat.
+- Importfehler bieten den direkten Wechsel zu Text oder Foto; der Quellenlink bleibt erhalten. OCR-Schreibweise „Fuer 4 Portionen“ wird als Metadatum erkannt.
+- Familienverbindung ist direkt über die Einstellungen erreichbar; dort wird der tatsächliche Verbindungsstatus angezeigt.
+
 ## OpenRouter und gemeinsamer Geräteabgleich
 
 Die private Einrichtungsseite verwendet einen einmaligen Link mit Token im URL-Fragment. Der Token wird aus der Adresszeile entfernt, sobald das Formular geladen ist. Der OpenRouter-Schlüssel wird über HTTPS geprüft und zusammen mit dem Familiencode mit AES-GCM verschlüsselt in einem privaten R2-Objekt gespeichert. Der separate Verschlüsselungsschlüssel und der Einrichtungs-Token sind Sites-Secrets. Keine Schlüssel in GitHub, Frontend-Bundles oder Kochbuchsicherungen.

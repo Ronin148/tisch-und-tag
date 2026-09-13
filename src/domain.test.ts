@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { addDays, blankRecipe, ingredientText, isChecked, monday, parseIngredient, parseRecipeText, safeUrl, shoppingList, shoppingSignature, validateBackup } from './domain';
+import { addDays, blankRecipe, ingredientText, isChecked, monday, parseIngredient, parseRecipeText, parseStockQuantity, safeUrl, shoppingList, shoppingSignature, validateBackup } from './domain';
 import { initialData } from './seed';
 import type { AppData } from './types';
 
@@ -20,6 +20,10 @@ describe('importing real-world ingredient quantities', () => {
 });
 
 describe('recipe text', () => {
+  it('recognizes OCR spelling of portion metadata without adding a cooking step', () => {
+    expect(parseRecipeText('Testpasta\nFuer 6 Portionen\n20 Minuten\nZutaten\n600 g Pasta\nZubereitung\n1. Pasta kochen.')).toMatchObject({ servings: 6, steps: ['Pasta kochen.'] });
+    expect(parseRecipeText('Pasta\nZubereitung\n2 Portionen beiseitestellen.').steps).toEqual(['2 Portionen beiseitestellen.']);
+  });
   it('extracts a copied recipe and keeps its steps', () => {
     const parsed = parseRecipeText('Schnelle Pasta\nFür 4 Portionen\n20 Minuten\n\nZutaten\n400 g Pasta\n2 EL Olivenöl\n\nZubereitung\n1. Wasser aufkochen.\n2. Pasta kochen.');
     expect(parsed).toMatchObject({ title: 'Schnelle Pasta', servings: 4, minutes: 20, steps: ['Wasser aufkochen.', 'Pasta kochen.'] });
@@ -37,6 +41,39 @@ function planned(): AppData {
   return { version: 1, recipes: [r, second], plan: { '2026-09-14': [{ id: 'one', recipeId: r.id, servings: 4 }], '2026-09-15': [{ id: 'two', recipeId: second.id, servings: 2 }] }, checked: {}, extras: [] };
 }
 describe('shopping list', () => {
+  it('deducts compatible stock once and offers the original total when disabled', () => {
+    const d=planned();d.plan['2026-09-14'][0].servings=12;
+    d.pantry=[{id:'stock',name:'Reis',quantity:'0,5 kg',location:'cupboard',expires:''}];
+    const item=shoppingList(d,'2026-09-14',true,'2026-09-13').find(i=>i.name==='Reis')!;
+    expect(item).toMatchObject({amount:100,requiredAmount:600,pantryAmount:500});
+    expect(shoppingList(d,'2026-09-14',false).find(i=>i.name==='Reis')?.amount).toBe(600);
+    expect(d.pantry[0].quantity).toBe('0,5 kg');
+  });
+  it('marks fully covered stock ready and reopens it after a quantity change', () => {
+    const d=planned();d.pantry=[{id:'stock',name:'Reis',quantity:'200 g',location:'cupboard',expires:''}];
+    const item=shoppingList(d,'2026-09-14').find(i=>i.name==='Reis')!;
+    expect(item.amount).toBe(0);expect(isChecked(d,'2026-09-14',item)).toBe(true);
+    d.plan['2026-09-14'][0].servings=6;
+    expect(isChecked(d,'2026-09-14',shoppingList(d,'2026-09-14').find(i=>i.name==='Reis')!)).toBe(false);
+  });
+  it('keeps uncertain, incompatible, different-food and expired stock on the list', () => {
+    const d=planned();
+    d.pantry=[
+      {id:'a',name:'Reis',quantity:'1 Packung',location:'cupboard',expires:''},
+      {id:'b',name:'Reis',quantity:'ca. 500 g',location:'cupboard',expires:''},
+      {id:'c',name:'Reis',quantity:'500 g',location:'cupboard',expires:'2026-09-13'},
+      {id:'d',name:'Reisnudeln',quantity:'500 g',location:'cupboard',expires:''},
+    ];
+    expect(shoppingList(d,'2026-09-14',true,'2026-09-13').find(i=>i.name==='Reis')?.amount).toBe(200);
+    expect(parseStockQuantity('ca. 500 g')).toBeNull();expect(parseStockQuantity('2–3 Stück')).toBeNull();
+  });
+  it('converts litres and shares piece stock across equivalent recipe units without double counting', () => {
+    const r={...blankRecipe(),title:'Test',servings:1,ingredients:['2 Paprika','3 Stück Paprika','500 ml Milch'].map(parseIngredient)};
+    const d:AppData={...initialData(),recipes:[r],plan:{'2026-09-14':[{id:'p',recipeId:r.id,servings:1}]},pantry:[{id:'one',name:'Paprika',quantity:'3 Stück',location:'fridge',expires:''},{id:'two',name:'Milch',quantity:'0,2 l',location:'fridge',expires:''}]};
+    const items=shoppingList(d,'2026-09-14');
+    expect(items.filter(i=>i.name==='Paprika').reduce((sum,i)=>sum+(i.amount||0),0)).toBe(2);
+    expect(items.find(i=>i.name==='Milch')?.amount).toBe(300);
+  });
   it('scales servings and sums grams and kilograms', () => { const items = shoppingList(planned(), '2026-09-14'); expect(items.find(i => i.name === 'Tomaten')?.amount).toBe(1250); expect(items.find(i => i.name === 'Reis')?.amount).toBe(200); });
   it('never mixes tablespoons with milliliters', () => expect(shoppingList(planned(), '2026-09-14').filter(i => i.name === 'Olivenöl')).toHaveLength(2));
   it('leaves unknown quantities unknown', () => expect(shoppingList(planned(), '2026-09-14').find(i => i.name === 'Salz')?.amount).toBeNull());

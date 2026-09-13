@@ -1,5 +1,5 @@
 /* Readable phone layouts. Keep browser zoom available and form text at 16px+. */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 720px), screen and (max-width: 1024px) and (max-height: 600px) {
   :root { --muted: #5f6b59; }
   body { font-size: 17px; line-height: 1.5; }
   button, input, textarea, select { font-size: 1rem; }
@@ -133,4 +133,71 @@
 }
 @media screen and (min-width: 600px) and (max-width: 720px) {
   .recipe-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Compact working surfaces and touch controls. */
+[hidden] { display: none !important; }
+.recipe-card h3 button { font:inherit; text-align:left; }
+.empty-collection-intro { display:flex; align-items:center; gap:20px; margin:0 0 24px; }
+.empty-collection-intro img { width:90px; height:90px; object-fit:cover; border-radius:12px; }
+.empty-collection-intro p { max-width:380px; font-size:17px; line-height:1.6; }
+.section-title h1 { font-size:32px; margin:0; }
+.collection-options { margin:12px 0 22px; border:1px solid var(--line); border-radius:10px; padding:0 16px; background:#fffefa; }
+.collection-options summary,.discovery-info summary { min-height:48px; padding:12px 0; cursor:pointer; font-size:16px; color:var(--green); }
+.collection-options[open] { padding-bottom:16px; }
+.collection-options .sort-label { display:block; margin:8px 0 16px; }
+.collection-options .sort-label select { min-height:48px; font-size:16px; }
+.collection-options .filters { margin-bottom:12px; }
+.compact-title { margin-bottom:20px; }
+.discovery-info { margin:0 0 16px; }
+.discovery-info summary { font-size:14px; min-height:44px; padding:8px 0; }
+.profile-panel fieldset { border:0; margin:0; padding:0; min-width:0; }
+.profile-save-bar { padding:16px 0 0; background:#fffefa; }
+.profile-save-bar.has-draft { position:sticky; bottom:12px; padding:14px; margin:0 -8px; border:1px solid #becbb0; border-radius:10px; box-shadow:0 -4px 14px #16392b0d; z-index:2; }
+.profile-save-bar p { margin:0 0 10px; font-size:14px; }
+.profile-save-bar .btn { flex:1; }
+.draft-notice { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.stock-controls { margin:18px 0; }
+.stock-controls .checkbox-label { display:flex; align-items:center; gap:12px; min-height:48px; font-size:16px; }
+.stock-controls input { width:24px; height:24px; accent-color:var(--green); }
+.stock-controls p { margin:8px 0; }
+.shopping-item .stock-breakdown { color:var(--green); line-height:1.6; }
+.filters button { min-height:44px; font-size:14px; }
+@media screen and (max-width:720px), screen and (max-width:1024px) and (max-height:600px) {
+  .mobile-top { display:flex; min-height:68px; }
+  .mobile-nav { display:flex; }
+  .main-content { padding-top:16px; }
+  .main-content>.section-heading { margin-top:0; }
+  .section-title h1 { font-size:30px; line-height:1.2; }
+  .quick-import { gap:6px; }
+  .quick-import button { padding:8px 4px; min-height:64px; font-size:14px; }
+  .collection-tools { margin:16px 0 0; }
+  .collection-options { margin:12px 0 18px; }
+  .source-tabs { margin-bottom:14px; }
+  .source-tabs button { flex-basis:110px; min-height:44px; font-size:14px; }
+  .compact-title { margin-bottom:16px; }
+  .compact-title h1 { font-size:30px; }
+  .compact-title p { margin-top:8px; font-size:16px; }
+  .discover-tags { margin:12px 0 4px; gap:6px; }
+  .discover-tags button { min-height:44px; padding:8px 12px; font-size:14px; }
+  .profile-save-bar.has-draft { bottom:calc(84px + env(safe-area-inset-bottom)); }
+  .profile-tabs { gap:6px; }
+  .profile-tabs button { font-size:17px; }
+  .empty-collection-intro { gap:14px; margin-bottom:20px; }
+  .empty-collection-intro img { width:70px; height:70px; }
+  .empty-collection-intro p { font-size:16px; }
+}
+@media screen and (min-width:721px) and (max-width:1024px) and (max-height:600px) {
+  .mobile-top { min-height:56px; padding-top:6px; padding-bottom:6px; }
+  .mobile-nav { padding-top:4px; padding-bottom:4px; }
+  .mobile-nav>button { min-height:48px; }
+  .recipe-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .profile-save-bar.has-draft { position:static; }
+  .modal-head { padding:10px 16px; }
+}
+
+.source-tabs[aria-label="Rezeptquellen"] { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media screen and (max-width:720px), screen and (max-width:1024px) and (max-height:600px) {
+  .discover-tags button { padding:8px 10px; }
+  .discovery-card .card-image { aspect-ratio:2 / 1; }
 }

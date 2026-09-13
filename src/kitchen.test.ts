@@ -54,6 +54,12 @@ describe('cooking timers',()=>{
   it.each([['5 Minuten köcheln',5],['15–20 Minuten backen',20],['1,5 Stunden garen',90],['Gut vermischen',null]])('suggests a timer for %s',(step,expected)=>expect(stepMinutes(step as string)).toBe(expected));
 });
 describe('seasonal recipe matching',()=>{
+  it('never treats garlic or wild garlic as leek and ignores optional alternatives',()=>{
+    const r={...exampleRecipes[0],ingredients:['1 Zehe Knoblauch','1 Bund Bärlauch','1 Zwiebel (alternativ Lauch)'].map(parseIngredient)};
+    expect(seasonalIngredients(r,9)).not.toContain('Lauch');
+    expect(seasonalIngredients({...r,ingredients:[parseIngredient('1 Stange Lauch')]},9)).toContain('Lauch');
+    expect(pantryMatch({...r,ingredients:[parseIngredient('1 Zehe Knoblauch')]},[{id:'p',name:'Lauch',quantity:'1 Stück',location:'fridge',expires:''}]).have).toEqual([]);
+  });
   it('distinguishes harvest and storage and matches actual ingredients',()=>{
     expect(inSeason(9).some(p=>p.name==='Kürbis')).toBe(true);expect(inSeason(1).find(p=>p.name==='Äpfel')?.stored).toContain(1);
     expect(seasonalIngredients({...exampleRecipes[0],ingredients:[parseIngredient('1 Kürbis')]},9)).toContain('Kürbis');

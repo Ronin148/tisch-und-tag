@@ -15,5 +15,5 @@ export type AppData = {
   checked: Record<string, string>; extras: ExtraItem[];
   profiles?: Profile[]; pantry?: PantryItem[];
 };
-export type ShoppingItem = Ingredient & { key: string; category: string; recipeTitles: string[]; extraId?: string };
+export type ShoppingItem = Ingredient & { key: string; category: string; recipeTitles: string[]; extraId?: string; requiredAmount?: number; pantryAmount?: number };
 export type View = 'recipes' | 'discover' | 'plan' | 'shopping' | 'kitchen';

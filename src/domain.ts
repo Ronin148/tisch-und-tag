@@ -1,4 +1,5 @@
 import type { AppData, Ingredient, Recipe, ShoppingItem } from './types';
+import { sameFood } from './food';
 
 const fractions: Record<string, string> = { '½': '1/2', '¼': '1/4', '¾': '3/4', '⅓': '1/3', '⅔': '2/3', '⅛': '1/8' };
 const unitAliases: Record<string, string> = { gramm: 'g', kilogramm: 'kg', liter: 'l', milliliter: 'ml', teelöffel: 'TL', tl: 'TL', esslöffel: 'EL', el: 'EL', stück: 'Stück', st: 'Stück', stk: 'Stück', dose: 'Dose', dosen: 'Dose', bund: 'Bund', packung: 'Packung', packungen: 'Packung', prise: 'Prise', prisen: 'Prise', zehe: 'Zehe', zehen: 'Zehe', tasse: 'Tasse', tassen: 'Tasse' };
@@ -60,8 +61,19 @@ function category(name: string): string {
   return 'Sonstiges';
 }
 
-export function shoppingList(data: AppData, week: string): ShoppingItem[] {
+function stockUnit(unit: string): string { return unit === 'Stück' ? '' : unit; }
+export function parseStockQuantity(quantity: string): { amount: number; unit: string } | null {
+  const parsed = parseIngredient(`${quantity.trim()} __stock__`);
+  if (parsed.name !== '__stock__' || parsed.amount === null) return null;
+  if (parsed.unit === 'kg') return { amount: parsed.amount * 1000, unit: 'g' };
+  if (parsed.unit === 'l') return { amount: parsed.amount * 1000, unit: 'ml' };
+  return { amount: parsed.amount, unit: stockUnit(parsed.unit) };
+}
+export function coveredByPantry(item: ShoppingItem): boolean { return item.amount === 0 && (item.pantryAmount || 0) > 0; }
+
+export function shoppingList(data: AppData, week: string, usePantry = true, today = localDate(new Date())): ShoppingItem[] {
   const map = new Map<string, ShoppingItem>();
+  const neededBy = new Map<string, string>();
   for (const day of weekDates(week)) for (const entry of data.plan[day] || []) {
     const recipe = data.recipes.find(r => r.id === entry.recipeId);
     if (!recipe) continue;
@@ -72,6 +84,8 @@ export function shoppingList(data: AppData, week: string): ShoppingItem[] {
       if (unit === 'l') { unit = 'ml'; if (amount !== null) amount *= 1000; }
       const normalizedName = ingredient.name.trim().toLocaleLowerCase('de').replace(/\s+/g, ' ');
       const key = `${normalizedName}|${unit}|${amount === null ? 'unbestimmt' : 'menge'}`;
+      const dayNeeded = entry.cookDay || day;
+      neededBy.set(key, [neededBy.get(key) || '', dayNeeded, today].sort().at(-1)!);
       const existing = map.get(key);
       if (existing) {
         if (amount !== null && existing.amount !== null) existing.amount += amount;
@@ -79,12 +93,27 @@ export function shoppingList(data: AppData, week: string): ShoppingItem[] {
       } else map.set(key, { ...ingredient, amount, unit, key, category: category(ingredient.name), recipeTitles: [recipe.title] });
     }
   }
+  if (usePantry) {
+    const stock = (data.pantry || []).map(p => ({ ...p, parsed: parseStockQuantity(p.quantity) }));
+    for (const item of map.values()) {
+      if (item.amount === null || item.amount <= 0) continue;
+      const required = item.amount;
+      for (const p of stock) {
+        if (!p.parsed || !sameFood(p.name, item.name) || p.parsed.unit !== stockUnit(item.unit) || p.expires && p.expires < neededBy.get(item.key)!) continue;
+        const used = Math.min(item.amount, p.parsed.amount);
+        item.amount = Math.max(0, item.amount - used);
+        p.parsed.amount -= used;
+      }
+      if (item.amount < 1e-9) item.amount = 0;
+      if (item.amount < required) { item.requiredAmount = required; item.pantryAmount = required - item.amount; }
+    }
+  }
   for (const e of data.extras.filter(x => x.week === week)) map.set(`extra:${e.id}`, { key: `extra:${e.id}`, name: e.name, amount: null, unit: '', category: category(e.name), recipeTitles: [], extraId: e.id });
   const order = ['Obst & Gemüse', 'Kühlregal', 'Vorrat & Gewürze', 'Sonstiges'];
   return [...map.values()].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category) || a.name.localeCompare(b.name, 'de'));
 }
 export function shoppingSignature(i: ShoppingItem): string { return `${i.amount === null ? '?' : Math.round(i.amount * 10000) / 10000}|${i.unit}`; }
-export function isChecked(data: AppData, week: string, i: ShoppingItem) { return data.checked[`${week}|${i.key}`] === shoppingSignature(i); }
+export function isChecked(data: AppData, week: string, i: ShoppingItem) { return coveredByPantry(i) || data.checked[`${week}|${i.key}`] === shoppingSignature(i); }
 export function safeUrl(value: string): string {
   try { const url = new URL(value); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch { return ''; }
 }
@@ -101,7 +130,7 @@ export function parseRecipeText(text: string): Partial<Recipe> {
     const line = raw.replace(/^#{1,6}\s*/, '').replace(/\*\*/g, '');
     if (/^(?:zutaten|ingredients)\b/i.test(line)) { mode = 'ingredients'; const s = line.match(/(\d+)\s*(?:portion|person)/i); if (s) servings = Number(s[1]); continue; }
     if (/^(?:zubereitung|anleitung|schritte|instructions|directions|methode)\s*[:：]?$/i.test(line)) { mode = 'steps'; continue; }
-    const portion = line.match(/^(?:für\s+)?(\d+)\s*(?:portionen?|personen?|servings?)|^(?:portionen?|personen?|servings?)\s*:\s*(\d+)/i);
+    const portion = line.match(/^(?:(?:für|fuer|for)\s+)?(\d+)\s*(?:portionen?|personen?|servings?)\s*[.:]?\s*$|^(?:portionen?|personen?|servings?)\s*:\s*(\d+)\s*$/i);
     if (portion) { servings = Number(portion[1] || portion[2]); continue; }
     const timing = line.match(/^(?:(?:gesamtzeit|zubereitungszeit|zeit|dauer)\s*:\s*)?(\d+)\s*(?:minuten|min\.?)$/i);
     if (timing) { minutes = Number(timing[1]); continue; }

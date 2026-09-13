@@ -1,5 +1,5 @@
 import type { Recipe } from './types';
-import { normalize } from './kitchen';
+import { containsFoodTerm } from './food';
 
 export const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
 export const seasonSource = 'https://www.verbraucherzentrale.de/sites/default/files/2023-01/saisonkalender_poster_a3.pdf';
@@ -34,6 +34,11 @@ export const produce: Produce[] = [
 ];
 export const inSeason = (month: number) => produce.filter(p => p.fresh.includes(month) || p.stored.includes(month));
 export function seasonalIngredients(recipe: Recipe, month: number): string[] {
-  const names = normalize(recipe.ingredients.map(i => i.name).join(' '));
-  return inSeason(month).filter(p => p.terms.some(term => names.includes(normalize(term)))).map(p => p.name);
+  return inSeason(month).filter(p => recipeHasProduce(recipe, p)).map(p => p.name);
+}
+export function recipeHasProduce(recipe: Recipe, item: Produce): boolean {
+  return recipe.ingredients.some(i => {
+    const primary = i.name.split(/\(?\s*(?:alternativ|optional|wahlweise|oder)\b/i)[0];
+    return item.terms.some(term => containsFoodTerm(primary, term));
+  });
 }

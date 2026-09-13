@@ -1,14 +1,13 @@
 import { useMemo, useState } from 'react';
 import { CalendarDays, Plus, ExternalLink } from 'lucide-react';
-import { inSeason, months, produce, seasonalIngredients, seasonSource } from './seasons';
+import { inSeason, months, produce, seasonalIngredients, seasonSource, recipeHasProduce } from './seasons';
 import { discoverRecipes, keepRecipeImage } from './discovery';
-import { normalize } from './kitchen';
 import { RecipeDetail, RecipeImage } from './components';
 import type { Recipe } from './types';
 export default function SeasonCalendar({ ownRecipes,onAdd,onOpen }: { ownRecipes:Recipe[];onAdd:(r:Recipe)=>Promise<void>;onOpen:(id:string)=>void }) {
   const [month,setMonth]=useState(new Date().getMonth()+1);const [ingredient,setIngredient]=useState('Alle');const [selected,setSelected]=useState<Recipe|null>(null);const [busy,setBusy]=useState(false);const [error,setError]=useState('');
   const available=inSeason(month);
-  const recipes=useMemo(()=>discoverRecipes.filter(r=>!r.sample&&seasonalIngredients(r,month).length&&(ingredient==='Alle'||r.ingredients.some(i=>produce.find(p=>p.name===ingredient)?.terms.some(t=>normalize(i.name).includes(normalize(t)))))),[month,ingredient]);
+  const recipes=useMemo(()=>discoverRecipes.filter(r=>!r.sample&&seasonalIngredients(r,month).length&&(ingredient==='Alle'||recipeHasProduce(r,produce.find(p=>p.name===ingredient)!))),[month,ingredient]);
   const saved=(r:Recipe)=>ownRecipes.find(o=>o.id===r.id||r.sourceUrl&&r.sourceUrl===o.sourceUrl);
   async function add(r:Recipe){if(saved(r)){setSelected(null);onOpen(saved(r)!.id);return;}setBusy(true);setError('');try{await onAdd(await keepRecipeImage(r));setSelected(null);}catch(e){setError((e as Error).message);}finally{setBusy(false);}}
   return <><section className="kitchen-panel"><h2><CalendarDays size={24}/>Saisonkalender</h2><label>Monat<select value={month} onChange={e=>{setMonth(Number(e.target.value));setIngredient('Alle');}}>{months.map((m,i)=><option key={m} value={i+1}>{m}</option>)}</select></label><p>Deutschland · ungefähre Erntezeiten. Wetter und Region können den Saisonbeginn verschieben.</p><div className="season-grid">{available.map(p=><button key={p.name} className={`season-tile ${ingredient===p.name?'active':''}`} aria-pressed={ingredient===p.name} onClick={()=>setIngredient(ingredient===p.name?'Alle':p.name)}><strong>{p.name}</strong><span>{p.fresh.includes(month)?'Erntezeit':'Aus Lagerung'}</span></button>)}</div><a className="text-btn" href={seasonSource} target="_blank" rel="noopener noreferrer">Kalender der Verbraucherzentrale <ExternalLink size={16}/></a></section>

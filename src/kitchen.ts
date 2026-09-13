@@ -1,5 +1,6 @@
 import type { AppData, MealSlot, PantryItem, Profile, Recipe } from './types';
 import { addDays, blankRecipe, parseIngredient, uid } from './domain';
+import { containsFoodTerm } from './food';
 
 export const defaultProfiles = (): Profile[] => ['Anne', 'Joel', 'Mathis'].map(name => ({ id: name.toLowerCase(), name, calories: null, preferences: '', excluded: '', diets: [] }));
 export const diets = ['Vegetarisch', 'Vegan', 'Laktosefrei', 'Glutenfrei', 'Low Carb', 'Proteinreich'];
@@ -13,7 +14,7 @@ export function ingredientMatches(a: string, b: string): boolean {
   return x.length >= 3 && y.length >= 3 && (x.includes(y) || y.includes(x));
 }
 export function pantryMatch(recipe: Recipe, pantry: PantryItem[]) {
-  const have = recipe.ingredients.filter(i => pantry.some(p => ingredientMatches(i.name, p.name)));
+  const have = recipe.ingredients.filter(i => pantry.some(p => containsFoodTerm(i.name, p.name)));
   return { have, missing: recipe.ingredients.filter(i => !have.includes(i)), score: have.length / Math.max(1, recipe.ingredients.length) };
 }
 
