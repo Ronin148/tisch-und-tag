@@ -1,0 +1,73 @@
+.kitchen-panel { background:#fffefa; border:1px solid var(--line); border-radius:12px; padding:24px; margin:20px 0; min-width:0; }
+.kitchen-panel h2 { display:flex; align-items:center; gap:10px; font-size:27px; margin-bottom:20px; }
+.kitchen-panel h3 { font-size:21px; margin:20px 0 12px; }
+.kitchen-panel p { font-size:16px; line-height:1.65; }
+.kitchen-panel .fineprint,.kitchen-panel .field-hint { font-size:14px; }
+.kitchen-panel label,.kitchen-form label { display:block; font-size:16px; font-weight:550; margin:16px 0; }
+.kitchen-panel input:not([type=file]):not([type=checkbox]),.kitchen-panel textarea,.kitchen-panel select,.kitchen-form select,.kitchen-form input { display:block; width:100%; min-height:48px; margin-top:8px; padding:11px 12px; font:inherit; font-size:16px; color:var(--dark); background:#fffefc; border:1px solid #dce2d1; border-radius:8px; }
+.kitchen-panel input[type=file] { position:absolute; inset:0; opacity:0; width:100%; height:100%; cursor:pointer; }
+.kitchen-panel input[type=checkbox] { width:24px; height:24px; accent-color:var(--green); }
+.kitchen-panel .file-btn { margin:0; min-height:48px; font-size:16px; }
+.kitchen-panel .btn,.kitchen-form .btn,.plan-tools .btn,.mealprep-batches .btn { font-size:16px; min-height:48px; }
+.kitchen-panel .optional { color:var(--muted); font-size:14px; font-weight:400; }
+.kitchen-panel .notice { margin-top:16px; }
+.kitchen-form fieldset { border:0; padding:0; margin:0; min-width:0; }
+.kitchen-form .checkbox-label { display:flex; align-items:center; gap:12px; }
+.kitchen-form .checkbox-label input { width:24px; height:24px; min-height:24px; margin:0; flex-shrink:0; }
+.profile-tabs { display:flex; gap:8px; margin-bottom:22px; }
+.profile-tabs button { flex:1; min-height:48px; border:1px solid var(--line); border-radius:9px; padding:10px; font-size:18px; }
+.profile-tabs button.active { background:var(--green); color:white; border-color:var(--green); }
+.season-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:10px; margin:22px 0; }
+.season-tile { border:1px solid var(--line); border-radius:9px; padding:16px; text-align:left; min-height:80px; background:#f3f5ea; }
+.season-tile strong { display:block; font-size:17px; }
+.season-tile span { display:block; font-size:14px; margin-top:5px; color:#627257; }
+.season-tile.active { background:var(--green); color:white; border-color:var(--green); }
+.season-tile.active span { color:#edf5e7; }
+.manual-pantry { margin-top:24px; }
+.manual-pantry summary,.cook-ingredients summary { cursor:pointer; min-height:48px; padding:12px 0; font-size:17px; color:var(--green); }
+.pantry-row { display:flex; align-items:center; gap:12px; min-height:70px; padding:12px 0; border-bottom:1px solid var(--line); }
+.pantry-row > span { flex:1; min-width:0; }
+.pantry-row strong { font-size:18px; display:block; overflow-wrap:anywhere; }
+.pantry-row small { font-size:14px; color:var(--muted); display:block; margin-top:4px; }
+.detection-row { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--line); }
+.detection-row > div { flex:1; min-width:0; }
+.detection-row input[type=checkbox] { flex-shrink:0; }
+.detection-row label { margin:8px 0; }
+.plan-tools { flex-wrap:wrap; margin:20px 0; }
+.proposal-meal { border-top:1px solid var(--line); padding:14px 0; }
+.proposal-meal > span { display:block; }
+.proposal-meal .text-btn { display:block; text-align:left; font-size:20px; line-height:1.5; }
+.proposal-meal p { margin:8px 0; }
+.mealprep-batches { margin:24px 0; }
+.mealprep-batches h2 { font-size:26px; }
+.cook-recipe { font-size:18px; font-weight:600; }
+.cook-ingredients { margin:20px 0; }
+.cook-progress { margin:24px 0; font-size:16px; }
+.cook-progress progress { margin-top:12px; height:8px; }
+.cook-step { font-family:'DM Sans Variable',sans-serif; font-size:28px; font-weight:500; line-height:1.65; letter-spacing:0; margin:24px 0; }
+.cook-navigation { justify-content:space-between; flex-wrap:wrap; }
+.cook-mode .btn { min-height:50px; font-size:17px; }
+.timer-panel { margin-top:32px; padding:20px; background:#eef3e4; border-radius:10px; }
+.timer-panel h3 { display:flex; align-items:center; gap:8px; font-size:22px; }
+.timer-add { display:flex; flex-wrap:wrap; align-items:flex-end; gap:12px; }
+.timer-add label { flex:1; margin:0; min-width:100px; }
+.timer-add input { min-height:48px; font-size:18px; }
+.timer-row { margin-top:16px; display:flex; align-items:center; gap:8px; padding:12px; border:1px solid #d4dfc6; border-radius:9px; background:#fffefa; }
+.timer-row > div { flex:1; min-width:0; }
+.timer-row span { display:block; font-size:14px; }
+.timer-row strong { display:block; font-size:30px; font-variant-numeric:tabular-nums; }
+.timer-done { background:#fff0d2; border-color:#b08032; }
+.timer-done strong { font-size:23px; }
+@media screen and (max-width:720px) {
+  .kitchen-panel { padding:20px 16px; }
+  .kitchen-panel h2 { font-size:25px; }
+  .kitchen-panel p { font-size:17px; }
+  .kitchen-panel h2 svg { flex-shrink:0; }
+  .kitchen-tabs { display:grid; grid-template-columns:1fr 1fr; }
+  .kitchen-tabs button { min-height:48px; }
+  .season-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .season-tile { padding:14px 12px; }
+  .cook-step { font-size:25px; }
+  .timer-panel { padding:16px 12px; }
+  .cook-navigation .btn { flex:1 1 120px; }
+}

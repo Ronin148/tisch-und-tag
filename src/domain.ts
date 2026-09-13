@@ -123,6 +123,7 @@ export function validateBackup(input: unknown): AppData {
   for (const r of d.recipes) {
     if (!r || !str(r.id, 100) || ids.has(r.id) || !str(r.title, 150) || !r.title.trim() || !str(r.description) || !num(r.servings, 100) || r.servings < 1 || !Number.isInteger(r.servings) || !(r.minutes === null || num(r.minutes, 1440)) || !str(r.source) || !str(r.sourceUrl) || typeof r.favorite !== 'boolean' || typeof r.sample !== 'boolean' || !str(r.createdAt, 50)) return fail();
     if (r.imageNote !== undefined && !str(r.imageNote, 1000) || r.servingsNote !== undefined && !str(r.servingsNote, 1000)) return fail();
+    if (r.kcalPerServing !== undefined && r.kcalPerServing !== null && !num(r.kcalPerServing, 10000) || r.nutritionNote !== undefined && !str(r.nutritionNote, 1000)) return fail();
     ids.add(r.id);
     if (!Array.isArray(r.ingredients) || r.ingredients.length > 300 || r.ingredients.some(i => !i || !str(i.name, 500) || !str(i.unit, 30) || !(i.amount === null || num(i.amount)))) return fail();
     if (!Array.isArray(r.steps) || r.steps.length > 300 || !r.steps.every(x => str(x)) || !Array.isArray(r.tags) || !r.tags.every(x => str(x, 100))) return fail();
@@ -134,5 +135,11 @@ export function validateBackup(input: unknown): AppData {
   }
   if (Object.entries(d.checked).some(([k, v]) => !str(k, 1000) || !str(v, 100))) return fail();
   if (d.extras.some(e => !e || !str(e.id, 100) || !str(e.name, 500) || !/^\d{4}-\d{2}-\d{2}$/.test(e.week))) return fail();
+  if (d.profiles !== undefined && (!Array.isArray(d.profiles) || d.profiles.length !== 3 || new Set(d.profiles.map(p => p?.id)).size !== 3 || d.profiles.some(p => !p || !['anne', 'joel', 'mathis'].includes(p.id) || !str(p.name, 80) || !(p.calories === null || num(p.calories, 10000) && p.calories > 0) || !str(p.preferences, 2000) || !str(p.excluded, 1000) || !Array.isArray(p.diets) || p.diets.length > 20 || !p.diets.every(x => str(x, 100))))) return fail();
+  if (d.pantry !== undefined && (!Array.isArray(d.pantry) || d.pantry.length > 500 || new Set(d.pantry.map(p => p?.id)).size !== d.pantry.length || d.pantry.some(p => !p || !str(p.id, 100) || !str(p.name, 200) || !p.name.trim() || !str(p.quantity, 100) || !['fridge', 'cupboard'].includes(p.location) || !(p.expires === '' || /^\d{4}-\d{2}-\d{2}$/.test(p.expires))))) return fail();
+  for (const entries of Object.values(d.plan)) for (const e of entries) {
+    if (e.batchId !== undefined && !str(e.batchId, 100) || e.cookDay !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(e.cookDay)) return fail();
+    if (e.profileIds !== undefined && (!Array.isArray(e.profileIds) || e.profileIds.length > 3 || !e.profileIds.every(x => ['anne', 'joel', 'mathis'].includes(x))) || e.slot !== undefined && !['Frühstück', 'Mittagessen', 'Abendessen'].includes(e.slot) || e.kcalPerServing !== undefined && e.kcalPerServing !== null && !num(e.kcalPerServing, 10000)) return fail();
+  }
   return d;
 }

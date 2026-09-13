@@ -1,8 +1,10 @@
 import { parseHTML } from 'linkedom';
 import type { Ingredient, Recipe } from './types';
 import { parseIngredient } from './domain';
+import { handleAI, jsonResponse } from './ai-server';
+import { resolveFamilyEnv, handleFamily, setupFamily, type FamilyEnv } from './family-server';
 
-type Env = { ASSETS?: { fetch: (request: Request) => Promise<Response> } };
+type Env = FamilyEnv & { ASSETS?: { fetch: (request: Request) => Promise<Response> } };
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
 const htmlLimit = 1_600_000;
@@ -208,8 +210,27 @@ async function serveAsset(request: Request, env: Env): Promise<Response> {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
-    if (url.pathname === '/api/import-recipe' && request.method === 'POST') return importRecipe(request);
-    if (url.pathname.startsWith('/api/')) return json({ error: 'Nicht gefunden.' }, 404);
+    if (url.pathname.startsWith('/api/')) {
+      const origin = request.headers.get('origin');
+      const allowed = !origin || [url.origin, 'https://ronin148.github.io', 'http://127.0.0.1:5173', 'http://localhost:5173'].includes(origin);
+      if (!allowed) return jsonResponse({ error: 'Diese Herkunft ist nicht freigegeben.' },403);
+      let response: Response;
+      if (request.method === 'OPTIONS') response = new Response(null,{status:204});
+      else {
+        try {
+          if (url.pathname === '/api/import-recipe' && request.method === 'POST') response = await importRecipe(request);
+          else if (url.pathname === '/api/setup') response = await setupFamily(request, env);
+          else if (url.pathname === '/api/family' || url.pathname === '/api/family/status') response = await handleFamily(request, await resolveFamilyEnv(env), url.pathname.endsWith('/status'));
+          else if (url.pathname.startsWith('/api/ai/')) response = await handleAI(request, await resolveFamilyEnv(env), url.pathname.split('/').pop() || '');
+          else response = jsonResponse({ error: 'Nicht gefunden.' },404);
+        } catch { response = jsonResponse({ error: 'Der Dienst ist gerade nicht erreichbar. Bitte später erneut versuchen.' },503); }
+      }
+      const headers = new Headers(response.headers);
+      if (origin) headers.set('access-control-allow-origin', origin);
+      headers.set('vary','Origin'); headers.set('access-control-allow-methods','GET,POST,OPTIONS'); headers.set('access-control-allow-headers','Content-Type,Authorization');
+      headers.set('x-content-type-options','nosniff');
+      return new Response(response.body,{status:response.status,headers});
+    }
     return serveAsset(request, env);
   },
 };

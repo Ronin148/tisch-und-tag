@@ -34,7 +34,7 @@
       "Low Carb",
       "Ofengericht"
     ],
-    "fetchedAt": "2026-09-13T09:17:14.463Z"
+    "fetchedAt": "2026-09-13T13:53:09.405Z"
   },
   {
     "id": "web-d8e0dfed9662",
@@ -72,7 +72,7 @@
       "Low Carb",
       "Dip"
     ],
-    "fetchedAt": "2026-09-13T09:17:14.851Z"
+    "fetchedAt": "2026-09-13T13:53:09.621Z"
   },
   {
     "id": "web-131266f91ec6",
@@ -104,7 +104,7 @@
       "Vegetarisch",
       "Gemüse"
     ],
-    "fetchedAt": "2026-09-13T09:17:15.191Z"
+    "fetchedAt": "2026-09-13T13:53:09.997Z"
   },
   {
     "id": "web-ca72d8c84e90",
@@ -138,7 +138,7 @@
       "Vegetarisch",
       "Suppe"
     ],
-    "fetchedAt": "2026-09-13T09:17:15.730Z"
+    "fetchedAt": "2026-09-13T13:53:10.020Z"
   },
   {
     "id": "web-3da8be597769",
@@ -169,7 +169,7 @@
       "Low Carb",
       "Ofengericht"
     ],
-    "fetchedAt": "2026-09-13T09:17:16.213Z"
+    "fetchedAt": "2026-09-13T13:53:10.353Z"
   },
   {
     "id": "web-ba724cc48aea",
@@ -201,7 +201,7 @@
       "Vegetarisch",
       "Ofengericht"
     ],
-    "fetchedAt": "2026-09-13T09:17:16.927Z"
+    "fetchedAt": "2026-09-13T13:53:10.661Z"
   },
   {
     "id": "web-5cb01191c8e1",
@@ -236,7 +236,7 @@
       "Vegetarisch",
       "Suppe"
     ],
-    "fetchedAt": "2026-09-13T09:17:17.302Z"
+    "fetchedAt": "2026-09-13T13:53:11.002Z"
   },
   {
     "id": "web-774b5bcbb1c8",
@@ -268,7 +268,7 @@
       "Vegetarisch",
       "Gemüse"
     ],
-    "fetchedAt": "2026-09-13T09:17:17.674Z"
+    "fetchedAt": "2026-09-13T13:53:11.389Z"
   },
   {
     "id": "web-d83e5cea2b63",
@@ -298,7 +298,7 @@
       "Vegetarisch",
       "Gemüse"
     ],
-    "fetchedAt": "2026-09-13T09:17:17.939Z"
+    "fetchedAt": "2026-09-13T13:53:11.946Z"
   },
   {
     "id": "web-4920c91a9854",
@@ -325,7 +325,7 @@
       "Vegetarisch",
       "Frühstück"
     ],
-    "fetchedAt": "2026-09-13T09:17:18.535Z"
+    "fetchedAt": "2026-09-13T13:53:12.561Z"
   },
   {
     "id": "web-a73bc816faa0",
@@ -365,7 +365,7 @@
       "Vegetarisch",
       "Ofengericht"
     ],
-    "fetchedAt": "2026-09-13T09:17:18.936Z"
+    "fetchedAt": "2026-09-13T13:53:12.893Z"
   },
   {
     "id": "web-6fbbfa435278",
@@ -407,7 +407,7 @@
       "Vegan",
       "Curry"
     ],
-    "fetchedAt": "2026-09-13T09:17:19.145Z"
+    "fetchedAt": "2026-09-13T13:53:13.359Z"
   },
   {
     "id": "web-1c6536f80ce6",
@@ -450,7 +450,7 @@
       "Vegetarisch",
       "Dip"
     ],
-    "fetchedAt": "2026-09-13T09:17:19.439Z"
+    "fetchedAt": "2026-09-13T13:53:13.809Z"
   },
   {
     "id": "web-13b93b8437de",
@@ -482,7 +482,7 @@
       "Low Carb",
       "Dip"
     ],
-    "fetchedAt": "2026-09-13T09:17:19.729Z"
+    "fetchedAt": "2026-09-13T13:53:14.187Z"
   },
   {
     "id": "web-3772cafcc2b7",
@@ -518,6 +518,179 @@
       "Vegetarisch",
       "Gemüse"
     ],
-    "fetchedAt": "2026-09-13T09:17:19.915Z"
+    "fetchedAt": "2026-09-13T13:53:14.508Z"
+  },
+  {
+    "id": "web-3836608b516f",
+    "title": "Kürbiscremesuppe",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1 Hokkaido-Kürbis (diese Kürbisart muss nicht geschält werden und ist geschmackvoller, für die Zubereitung geeignet sind als Ersatz auch Butter-Kürbisse)",
+      "3 große Möhren",
+      "500 ml passierte Tomaten",
+      "2 Zwiebeln",
+      "6 gekochte Kartoffeln",
+      "700 ml Gemüsebrühe (mindestens)",
+      "200 ml Schmand",
+      "1 EL Weizenmehl",
+      "2 EL Kürbiskerne",
+      "1 TL Kürbiskernöl",
+      "Paprikapulver"
+    ],
+    "steps": [
+      "Kürbis in Würfel schneiden. Zwiebeln schälen, würfeln und im Fett glasig anschwitzen, Paprikapulver dazugeben und kurz mitrösten. Dabei aufpassen, dass das Paprikapulver nicht verbrennt. Mit etwas Essig ablöschen, den Kürbis und die geschälten nussgroß geschnittenen Karotten dazugeben und ca. 5 Min. mitdünsten. Mit Tomaten, den gekochten Kartoffeln und Gemüsebrühe aufgießen und aufkochen. Auf mittlerer Flamme kochen bis der Kürbis weich ist. Dann Suppe mit dem Stabmixer mixen und durch ein Spitzsieb passieren.",
+      "Schmand mit 1 EL Weizenmehl glattrühren und in die kochende Suppe rühren. Das Mehl verhindert das Ausflocken der Suppe. Mit Salz und weißem Pfeffer aus der Mühle würzen. Kürbiskerne in der Pfanne rösten und mit dem Kernöl in die fertige Suppe geben.",
+      "Guten Appetit !"
+    ],
+    "image": "images/curry.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_K%C3%BCrbiscremesuppe&oldid=900840",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_K%C3%BCrbiscremesuppe",
+    "tags": [
+      "Saisonküche",
+      "Suppe"
+    ],
+    "fetchedAt": "2026-09-13T13:53:05.322Z"
+  },
+  {
+    "id": "web-efc56aeade64",
+    "title": "Grünkohl",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1 kg Grünkohl (frisch oder tiefgefroren)",
+      "3 Zwiebeln",
+      "200 g durchwachsener Speck",
+      "500 ml Gemüsebrühe",
+      "1 EL Senf, Salz, Pfeffer, Muskatnuss"
+    ],
+    "steps": [
+      "Frischen Grünkohl von den dicken Mittelrippen befreien und klein schneiden",
+      "Zwiebel und Speck in Würfel schneiden",
+      "Beides andünsten, Grünkohl und Brühe dazugeben und würzen",
+      "Mindestens eine Stunde lang kochen"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Gr%C3%BCnkohl&oldid=897910",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Gr%C3%BCnkohl",
+    "tags": [
+      "Saisonküche",
+      "Winter"
+    ],
+    "fetchedAt": "2026-09-13T13:53:06.377Z"
+  },
+  {
+    "id": "web-ba2016c40c83",
+    "title": "Ratatouille",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1 Aubergine",
+      "1-2 Zucchini",
+      "2-3 große Tomaten",
+      "2 rote Paprikaschoten",
+      "1 große rote Zwiebel",
+      "5 Knoblauchzehen",
+      "Salz, Pfeffer, Rosmarin, Thymian, Salbei",
+      "Olivenöl"
+    ],
+    "steps": [
+      "Gemüse waschen, in Scheiben oder Stücke schneiden",
+      "Separat in Olivenöl anbraten, dann zusammenfügen",
+      "Gewürze dazugeben, mit etwas Wasser oder Rotwein ablöschen",
+      "Im geschlossenen Topf mindestens eine halbe Stunde schmoren"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Ratatouille&oldid=1022426",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Ratatouille",
+    "tags": [
+      "Saisonküche",
+      "Gemüse"
+    ],
+    "fetchedAt": "2026-09-13T13:53:07.069Z"
+  },
+  {
+    "id": "web-a8d427a7ddc4",
+    "title": "Bärlauchsuppe",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "750 g mehlig kochende Kartoffeln",
+      "2 Schalotten oder 1 Zwiebel",
+      "2 EL Rapsöl",
+      "800 ml Gemüsebrühe",
+      "100 g Bärlauch",
+      "100 g Saure Sahne oder Sahne zum Kochen",
+      "2 TL Zitronensaft",
+      "Salz, Pfeffer"
+    ],
+    "steps": [
+      "Kartoffeln und Schalotten bzw. Zwiebel schälen und würfeln",
+      "Öl erhitzen, alles einige Minuten lang anbraten",
+      "Mit der Gemüsebrühe ablöschen und zugedeckt 20 Minuten köcheln lassen",
+      "Bärlauch waschen, die harten Stiele entfernen, Blätter fein hacken",
+      "Sahne und Bärlauch in die Suppe rühren und mit dem Pürierstab fein mixen",
+      "Mit Salz, Pfeffer und Zitronensaft abschmecken"
+    ],
+    "image": "images/curry.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_B%C3%A4rlauchsuppe&oldid=967706",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_B%C3%A4rlauchsuppe",
+    "tags": [
+      "Saisonküche",
+      "Suppe"
+    ],
+    "fetchedAt": "2026-09-13T13:53:08.544Z"
+  },
+  {
+    "id": "web-e6da2db1fe34",
+    "title": "Möhrensuppe",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "400 g Möhren",
+      "1 große Zwiebel",
+      "2 Knoblauchzehen",
+      "1 Stück frischer Ingwer, etwa 3 cm",
+      "600 ml Geflügel- oder Gemüsebrühe",
+      "100 ml Weißwein nach Belieben",
+      "2 EL Butter",
+      "1 EL Zucker",
+      "Kräuterzweige (Thymian, Oregano, Rosmarin, Estragon)",
+      "100 g Sahne oder Crème fraîche",
+      "Salz, Pfeffer, Zitronensaft",
+      "einige Schnittlauchhalme und Petersilienblättchen"
+    ],
+    "steps": [
+      "Möhren schälen, in Scheiben schneiden, Ingwer fein würfeln",
+      "Beides in der Butter andünsten, Zucker dazugeben und unter Rühren karamellisieren",
+      "Brühe und nach Belieben Weißwein zugeben, Kräuterzweige einlegen",
+      "20 Minuten köcheln lassen",
+      "Kräuterzweige entfernen, Sahne oder Crème fraîche einrühren, Suppe fein pürieren",
+      "Mit Salz, Pfeffer und Zitronensaft abschmecken",
+      "3 Möhrenscheiben blütenartig ausstechen, zusammen mit Schnittlauchhalmen und Petersilie zu Blumen dekorieren"
+    ],
+    "image": "images/curry.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_M%C3%B6hrensuppe&oldid=967709",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_M%C3%B6hrensuppe",
+    "tags": [
+      "Saisonküche",
+      "Suppe"
+    ],
+    "fetchedAt": "2026-09-13T13:53:09.136Z"
   }
 ]

@@ -1,9 +1,14 @@
 import { parseHTML } from 'linkedom';
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 
 // Deliberately selected openly licensed sources. No login/paywall bypass, no proxy.
 const sources = [
+  ['Kürbiscremesuppe', ['Saisonküche', 'Suppe'], 'curry'],
+  ['Grünkohl', ['Saisonküche', 'Winter'], 'vegetables'],
+  ['Ratatouille', ['Saisonküche', 'Gemüse'], 'vegetables'],
+  ['Bärlauchsuppe', ['Saisonküche', 'Suppe'], 'curry'],
+  ['Möhrensuppe', ['Saisonküche', 'Suppe'], 'curry'],
   ['Brokkoligratin mit dreierlei Käse', ['Vegetarisch', 'Low Carb', 'Ofengericht'], 'vegetables'],
   ['Guacamole', ['Vegan', 'Low Carb', 'Dip'], 'salad'],
   ['Paprikagemüse', ['Vegetarisch', 'Gemüse'], 'vegetables'],
@@ -63,5 +68,7 @@ for (const [name, tags, image] of sources) {
 }
 if (recipes.length < 8) throw new Error('Too few complete recipes; previous catalogue retained.');
 await mkdir('src', { recursive: true });
-await writeFile('src/web-catalog.json', JSON.stringify(recipes, null, 2) + '\n');
+const previous = JSON.parse(await readFile('src/web-catalog.json', 'utf8'));
+const merged = [...new Map([...previous, ...recipes].map(r => [r.id, r])).values()];
+await writeFile('src/web-catalog.json', JSON.stringify(merged, null, 2) + '\n');
 console.log(`Saved ${recipes.length} German web recipes. Source texts: CC BY-SA 4.0. Photos are labelled illustrations.`);
