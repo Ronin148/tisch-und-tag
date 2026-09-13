@@ -1,0 +1,523 @@
+[
+  {
+    "id": "web-c032ba00dd7d",
+    "title": "Brokkoligratin mit dreierlei Käse",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": 4,
+    "minutes": 30,
+    "ingredientLines": [
+      "750 g Brokkoli",
+      "250 g Kirschtomaten",
+      "4 Schalottenzwiebel",
+      "80 g Blauschimmelkäse",
+      "80 g Bergkäse",
+      "80 g Almkäse",
+      "2 EL Butter",
+      "frischer Basilikum"
+    ],
+    "steps": [
+      "Brokkoliröschen in gleichmäßige Stücke schneiden",
+      "Die Stiele anschneiden, damit Strunk und Röschen gleich gar werden",
+      "Brokkoli blanchieren, ca. 1 Minute in Salzwasser aufkochen",
+      "Gleich danach kurz in Eiswasser abschrecken",
+      "In mit Butter ausgefetteter Gratinform einschichten:",
+      "20 Minuten bei 180 Grad C im vorgeheizten Backrohr überbacken",
+      "Vor dem Servieren mit grünem und rotem Basilikum garnieren"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Brokkoligratin_mit_dreierlei_K%C3%A4se&oldid=897915",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Brokkoligratin_mit_dreierlei_K%C3%A4se",
+    "tags": [
+      "Vegetarisch",
+      "Low Carb",
+      "Ofengericht"
+    ],
+    "fetchedAt": "2026-09-13T09:17:14.463Z"
+  },
+  {
+    "id": "web-d8e0dfed9662",
+    "title": "Guacamole",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": 4,
+    "minutes": 15,
+    "ingredientLines": [
+      "2 reife Avocado",
+      "2 Tomaten",
+      "1 grüne (gelbe) Paprika",
+      "1-2 grüne Chili oder Pepperoni (je nach gewünschtem Schärfegrad)",
+      "½ Zwiebel (alternativ auch 1-2 Blatt Bärlauch)",
+      "½ TL gemahlene Korianderkörner (alternativ 1 EL fein gehacktes Koriandergrün)",
+      "Salz",
+      "Pfeffer",
+      "Wasser"
+    ],
+    "steps": [
+      "Avocado halbieren und den Stein entfernen, mit einem Löffel das Fruchtfleisch herauslösen",
+      "eine halbe Paprika, eine Tomate, Chili und Zwiebel in grobe Stücke schneiden",
+      "Avocado, die halbe Paprika, Tomate, Chili und Zwiebel im Mixer (unter mehrfacher Zugabe von Wasser in kleinen Mengen) zu einer glatten, dickflüssigen Paste mixen.",
+      "Koriander zugeben und einrühren",
+      "mit Salz und Pfeffer abschmecken",
+      "die verbleibende Tomate und Paprikahälfte fein würfeln und unterheben",
+      "Guacamole vor dem Servieren einige Zeit (mindestens 3 Stunden) kühl gelagert durchziehen lassen"
+    ],
+    "image": "images/salad.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Guacamole&oldid=1080421",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Guacamole",
+    "tags": [
+      "Vegan",
+      "Low Carb",
+      "Dip"
+    ],
+    "fetchedAt": "2026-09-13T09:17:14.851Z"
+  },
+  {
+    "id": "web-131266f91ec6",
+    "title": "Paprikagemüse",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": 4,
+    "minutes": 20,
+    "ingredientLines": [
+      "6 Paprika",
+      "6 Zwiebeln",
+      "ein paar Knoblauchzehen (2-4)",
+      "ein EL Olivenöl",
+      "ein EL Tomatenmark",
+      "1 Dose Tomaten (klein geschnitten)",
+      "ein EL Zucker",
+      "2 EL Balsamico"
+    ],
+    "steps": [
+      "Paprika und Zwiebeln in kleine Stücke schneiden und im Öl andünsten.",
+      "Restliche Zutaten dazugeben mit Salz, Pfeffer und ggf. scharfem Paprika abschmecken und ca. 40 Minuten auf kleiner Flamme garen.",
+      "Passt wunderbar zu Reis."
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Paprikagem%C3%BCse&oldid=591303",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Paprikagem%C3%BCse",
+    "tags": [
+      "Vegetarisch",
+      "Gemüse"
+    ],
+    "fetchedAt": "2026-09-13T09:17:15.191Z"
+  },
+  {
+    "id": "web-ca72d8c84e90",
+    "title": "Avocadosuppe",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "100 g mehligkochende Kartoffeln",
+      "1 kleine Zwiebel",
+      "1 Knoblauchzehe",
+      "400 ml Gemüsebrühe",
+      "1 Avocado",
+      "50 g Crème fraîche"
+    ],
+    "steps": [
+      "Kartoffeln schälen, in Würfel schneiden",
+      "Zwiebel und Knoblauch schälen und würfeln, in Öl andünsten",
+      "Kartoffeln dazugeben, mit der Brühe ablöschen und etwa 15 Minuten köcheln lassen",
+      "Avocado schälen und würfeln, zur Suppe geben, aufkochen und pürieren",
+      "Crème fraîche einrühren, mit Salz und Pfeffer kräftig würzen",
+      "Mit gerösteten Brotwürfeln oder Schnittlauch garnieren",
+      "Erfasst von: Ingeborg, am 17. September 2020"
+    ],
+    "image": "images/salad.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Avocadosuppe&oldid=967707",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Avocadosuppe",
+    "tags": [
+      "Vegetarisch",
+      "Suppe"
+    ],
+    "fetchedAt": "2026-09-13T09:17:15.730Z"
+  },
+  {
+    "id": "web-3da8be597769",
+    "title": "Zucchinifächer",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "2 kleine Zucchini",
+      "2-4 Tomaten je nach Größe",
+      "Salz, Pfeffer, Rapsöl"
+    ],
+    "steps": [
+      "Backofen auf 200°C vorheizen",
+      "Zucchini waschen, mit einem großen Messer fächerförmig einschneiden",
+      "Tomaten waschen, in dünne Scheiben schneiden und zwischen die Zucchinischeiben schieben",
+      "Salzen und pfeffern",
+      "Zucchini auf ein Backblech oder in eine ofenfeste Schale legen, mit Öl bestreichen und ca. 25 Minuten garen",
+      "Mit frisch gemahlenem Pfeffer bestreuen"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Zucchinif%C3%A4cher&oldid=978069",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Zucchinif%C3%A4cher",
+    "tags": [
+      "Vegetarisch",
+      "Low Carb",
+      "Ofengericht"
+    ],
+    "fetchedAt": "2026-09-13T09:17:16.213Z"
+  },
+  {
+    "id": "web-ba724cc48aea",
+    "title": "Überbackene Aubergine",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1 Aubergine",
+      "6 Oliven",
+      "Olivenöl",
+      "2 EL Semmelbrösel",
+      "2 mittelgroße Tomaten",
+      "100 g Mozzarella"
+    ],
+    "steps": [
+      "Aubergine längs in vier Scheiben schneiden, auf Backpapier legen, mit Öl einpinseln, im Ofen bei 180° etwa 10 Minuten backen",
+      "Oliven fein hacken, mit Semmelbröseln und frischem oder getrocknetem Oregano mischen",
+      "Tomaten und Mozzarella in Scheiben schneiden",
+      "Tomaten und Olivenbrösel auf die Auberginen geben, salzen, pfeffern und Käse darauf verteilen",
+      "20 Minuten überbacken"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_%C3%9Cberbackene_Aubergine&oldid=995251",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_%C3%9Cberbackene_Aubergine",
+    "tags": [
+      "Vegetarisch",
+      "Ofengericht"
+    ],
+    "fetchedAt": "2026-09-13T09:17:16.927Z"
+  },
+  {
+    "id": "web-5cb01191c8e1",
+    "title": "Ingwer-Linsen-Suppe",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1 mittelgroße Zwiebel",
+      "1 Knoblauchzehe",
+      "ca. 3 cm frischer Ingwer",
+      "150 g rote Linsen",
+      "Öl, Currypulver, Cayennepfeffer je nach gewünschtem Schärfegrad",
+      "1 Dose gehackte Tomaten (Abtropfgewicht 240 g)",
+      "500 ml Wasser",
+      "1 Dose Kokosmilch (400 ml)"
+    ],
+    "steps": [
+      "Zwiebel, Knoblauch und Ingwer fein hacken",
+      "Linsen waschen",
+      "Öl erhitzen, Gemüse darin andünsten",
+      "Linsen, Gewürze, Tomaten und Wasser hinzufügen, mit Salz und Pfeffer würzen",
+      "Suppe 25 Minuten köcheln lassen, inzwischen Kokosmilch glatt rühren, dann zur Suppe geben",
+      "Aufkochen, eventuell nachwürzen, mit etwas Kokosmilch oder Sahne garnieren"
+    ],
+    "image": "images/curry.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Ingwer-Linsen-Suppe&oldid=967708",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Ingwer-Linsen-Suppe",
+    "tags": [
+      "Vegetarisch",
+      "Suppe"
+    ],
+    "fetchedAt": "2026-09-13T09:17:17.302Z"
+  },
+  {
+    "id": "web-774b5bcbb1c8",
+    "title": "Limetten-Möhren",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "2 Bund junge Möhren, alternativ frische Möhren vom Wochenmarkt oder eigenem Garten",
+      "2 Schalotten",
+      "2 Limetten",
+      "Öl und Butter nach Belieben",
+      "2 TL Honig",
+      "Salz, Pfeffer, Chiliflocken"
+    ],
+    "steps": [
+      "Möhren schälen, längs halbieren, dickere Möhren vierteln",
+      "Schalotten abziehen und fein würfeln",
+      "Eine Limette in Scheiben schneiden, die andere auspressen",
+      "Öl und Butter erhitzen, Möhren und Schalotten andünsten, mit Honig beträufeln, Limettensaft und -scheiben zugeben",
+      "Etwa 10 Minuten zugedeckt bei kleiner Hitze bissfest dünsten und würzen"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Limetten-M%C3%B6hren&oldid=972251",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Limetten-M%C3%B6hren",
+    "tags": [
+      "Vegetarisch",
+      "Gemüse"
+    ],
+    "fetchedAt": "2026-09-13T09:17:17.674Z"
+  },
+  {
+    "id": "web-d83e5cea2b63",
+    "title": "Grünes Gemüse",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "Brokkoli",
+      "Grüne Bohnen",
+      "Zuckerschoten",
+      "Salatgurke",
+      "Grüne Paprika",
+      "Zucchini"
+    ],
+    "steps": [
+      "Gemüse waschen und zerkleinern",
+      "Mit etwas Öl anbraten, bei Bedarf mit Gemüsebrühe oder Weißwein ablöschen",
+      "Mit Salz, Pfeffer, Curry und Sojasoße würzen"
+    ],
+    "image": "images/salad.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Gr%C3%BCnes_Gem%C3%BCse&oldid=895590",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Gr%C3%BCnes_Gem%C3%BCse",
+    "tags": [
+      "Vegetarisch",
+      "Gemüse"
+    ],
+    "fetchedAt": "2026-09-13T09:17:17.939Z"
+  },
+  {
+    "id": "web-4920c91a9854",
+    "title": "Apfelmüsli",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": 30,
+    "ingredientLines": [
+      "Äpfel",
+      "Butter",
+      "Wein",
+      "Zimt",
+      "Zucker"
+    ],
+    "steps": [
+      "Die Äpfel schälen und in Brocken schneiden, dann waschen. In einer Pfanne Butter heiß werden lassen, dann die Äpfel und ein wenig Wein hinzugeben. Das Ganze dann mit Zimt und Zucker abschmecken und zudecken."
+    ],
+    "image": "images/oats.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Apfelm%C3%BCsli&oldid=589870",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Apfelm%C3%BCsli",
+    "tags": [
+      "Vegetarisch",
+      "Frühstück"
+    ],
+    "fetchedAt": "2026-09-13T09:17:18.535Z"
+  },
+  {
+    "id": "web-a73bc816faa0",
+    "title": "Spargel-Spinat-Gratin",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1200 g frischer weißer Spargel",
+      "375 g frischer Blattspinat",
+      "125 g Sahne",
+      "5 EL geriebener Parmesan",
+      "2 EL Butter",
+      "Salz",
+      "Zucker",
+      "125 ml Milch",
+      "3 EL Mehl",
+      "1 Eigelb",
+      "1 kleine Zwiebel",
+      "Salz, Pfeffer, Muskatnuss"
+    ],
+    "steps": [
+      "Den Spargel schälen und die holzigen Enden abschneiden. Dann in kochendem, leicht gesalzenem Wasser, dem etwas Zucker beigefügt wurde, 10-15 Minuten garen.",
+      "Den Spinat putzen und waschen. Die Zwiebel schälen und hacken.",
+      "Die Zwiebel in 1 TL Butter glasig dünsten. Den Spinat zufügen und ca. 5 Minuten weiterdünsten. Mit Salz. Pfeffer und Muskatnuss pikant würzen.",
+      "Den Spargel abtropfen lassen. Das Kochwasser auffangen! Mehl in der restlichen Butter anschwitzen. Mit 250 ml Spargelwasser, der Sahne und der Milch ablöschen. Ca. 5 Minuten leicht köcheln lassen.",
+      "Nun die 2 EL Parmesan einrühren und mit Salz und Pfeffer würzen.",
+      "Den Spargel in eine gefettete Auflaufform legen. Den angedünsteten Spinat darauf legen und mit der Sauce begießen. Zum Schluss den restlichen Parmesan darüberstreuen.",
+      "Nun im vorgeheizten Backofen (Ober-/Unterhitze: 200°C, Umluft: 180°C) 30-35 Minuten goldbraun backen."
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Spargel-Spinat-Gratin&oldid=897918",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Spargel-Spinat-Gratin",
+    "tags": [
+      "Vegetarisch",
+      "Ofengericht"
+    ],
+    "fetchedAt": "2026-09-13T09:17:18.936Z"
+  },
+  {
+    "id": "web-6fbbfa435278",
+    "title": "Curry-Gemüse",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": 4,
+    "minutes": 30,
+    "ingredientLines": [
+      "2 Zwiebeln",
+      "250g Blumenkohl",
+      "3 Kartoffeln",
+      "250g Champignons",
+      "250g rote Paprika",
+      "2 Bananen",
+      "400ml Kokosmilch",
+      "Currypulver"
+    ],
+    "steps": [
+      "Blumenkohl waschen und in einzelne \"Sträuße\" zerkleinern",
+      "Kartoffeln schälen und in mundgerechte Stücke würfeln",
+      "Blumenkohl und Kartoffeln zusammen in leicht gesalzenem Wasser bissfest kochen",
+      "Zwiebeln schälen und würfeln",
+      "Champignons putzen und vierteln",
+      "große Pfanne, Wok oder Topf mit etwas Öl erhitzen und Zwiebeln und Champignons anbraten",
+      "Paprika waschen und in Stücke schneiden und in die Pfanne geben",
+      "Kokosmilch hinzugeben und mit Salz, Pfeffer und sehr viel Curry abschmecken",
+      "Kartoffeln und Blumenkohl untermischen und die Sauce köcheln lassen",
+      "Bananen schälen und quer in Scheiben schneiden",
+      "In einer weiteren Pfanne Öl stark erhitzen und Bananen anbraten. Dabei eine Seite knusprig-braun anbraten und erst dann wenden. Zu häufiges Wenden macht die Bananen matschig.",
+      "gebratene Bananen vorsichtig unter die Sauce heben",
+      "Sauce mit Reis servieren"
+    ],
+    "image": "images/curry.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Curry-Gem%C3%BCse&oldid=899669",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Curry-Gem%C3%BCse",
+    "tags": [
+      "Vegan",
+      "Curry"
+    ],
+    "fetchedAt": "2026-09-13T09:17:19.145Z"
+  },
+  {
+    "id": "web-1c6536f80ce6",
+    "title": "Pesto",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": 4,
+    "minutes": 30,
+    "ingredientLines": [
+      "80 g Pinienkerne",
+      "4-5 Bund Basilikum (pesto alla genovese) und/oder Rucola",
+      "1 Knoblauchzehe",
+      "50 g Parmesan",
+      "50 g Pecorino sardo oder Pecorino romano",
+      "180 ml Olivenöl",
+      "Salz (vorzugsweise grobes Salz)",
+      "1-2 geschälte und in Würfel geschnittene Kartoffeln",
+      "1-2 Handvoll grüne Bohnen."
+    ],
+    "steps": [
+      "Basilikum waschen, die Blätter abzupfen und trockentupfen.",
+      "Die Knoblauchzehe schälen, den Keim entfernen und grob hacken.",
+      "Parmesan und Pecorino reiben (keinen bereits geriebenen Käse verwenden).",
+      "Pinienkerne, Knoblauch und Basilikumblätter mit Salz in einen Mörser geben und fein zerstoßen.",
+      "Den Käse untermengen",
+      "Langsam das Olivenöl zugeben, nicht zu viel auf einmal, damit man es gut unter das Gemisch arbeiten kann.",
+      "Bemerkung zur Konsistenz: Es soll eine recht einheitlich grüne, kompakte Mischung entstehen. Man verdünnt sie später mit 1-4 EL des Kochwassers, in dem die Teigwaren gekocht wurden.",
+      "Die Variante mit Bohnen und Kartoffeln stammt aus der Gegend um den Fischerort Camogli, der auf der Genueserseite des Promontorio di Portofino liegt. Man verwendet keine langen Teigwaren, wie Trenette, auch keine Testaroli, sondern nimmt Trofie (eine Art kleine, längliche, gedrehte Spätzle) oder Esse (gedrehte ca. 5 cm lange im Querschnitt S-förmige Pasta)",
+      "Der Pesto wird wie oben angegeben zubereitet und 3-4 EL des Pasta-Kochwassers wird untergerührt.",
+      "Die Bohnen werden je nach Länge (4-9 cm lang) geschnitten und im Wasser weichgekocht (Vorsicht: Salz erst gegen Ende der Kochzeit zugeben!)",
+      "Kartoffeln werden in Salzwasser gargekocht.",
+      "Man gibt die knapp(!) al dente gekochten Teigwaren mit den gekochten Kartoffeln und Bohnen zusammen in eine passende ofenfeste Schüssel und mischt einem guten Teil der Pesto darunter.",
+      "Auf das Gericht verteilt man ein paar Butterflöckchen und schiebt die Schüssel in das Backrohr, das auf 150-180 °C vorgeheizt wurde. Nach 15 bis 20 Minuten ist die (wahre) Pasta al Pesto fertig und wird in der Schüssel, in der man das Gericht im Ofen zubereitete, serviert."
+    ],
+    "image": "images/pasta.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Pesto&oldid=1017611",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Pesto",
+    "tags": [
+      "Vegetarisch",
+      "Dip"
+    ],
+    "fetchedAt": "2026-09-13T09:17:19.439Z"
+  },
+  {
+    "id": "web-13b93b8437de",
+    "title": "Salsa mexicana",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": 2,
+    "minutes": 10,
+    "ingredientLines": [
+      "2–3 reife Tomaten",
+      "1-2 grüne Chilies (üblicherweise die Sorte „Serrano“)",
+      "1 Zwiebel",
+      "2–3 EL fein gehacktes Koriandergrün",
+      "Salz",
+      "Pfeffer"
+    ],
+    "steps": [
+      "Die Tomaten, Chilies und die Zwiebel in kleine Würfel schneiden und in eine Schüssel geben",
+      "das frische gehackte Koriandergrün dazugeben",
+      "mit Salz und Pfeffer abschmecken und alles leicht miteinander verrühren",
+      "Als Beilage zu verschiedenen mexikanischen Gerichten wie z. B. Burritos oder als Dip zu Tortilla-Chips servieren."
+    ],
+    "image": "images/salad.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Salsa_mexicana&oldid=591364",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Salsa_mexicana",
+    "tags": [
+      "Vegan",
+      "Low Carb",
+      "Dip"
+    ],
+    "fetchedAt": "2026-09-13T09:17:19.729Z"
+  },
+  {
+    "id": "web-3772cafcc2b7",
+    "title": "Aubergine mit Salsa",
+    "description": "Aus dem freien Wikibooks-Kochbuch. Zutaten und Schritte vor dem Kochen prüfen.",
+    "servings": null,
+    "minutes": null,
+    "ingredientLines": [
+      "1 große oder 2 kleine Auberginen",
+      "1 Ei",
+      "gemahlene Mandeln",
+      "1-2 Avocados",
+      "2 Tomaten",
+      "1 kleine Zwiebel",
+      "Schnittlauch oder Petersilie",
+      "Limonensaft, Salz, Pfeffer"
+    ],
+    "steps": [
+      "Auberginen längs in 1 cm dicke Scheiben schneiden",
+      "In verquirltem Ei und gemahlenen Mandeln wenden",
+      "In Butter oder Öl goldbraun braten",
+      "Avocado, Tomaten und Zwiebel in kleine Würfel schneiden",
+      "Mit Salz, Pfeffer und Limonensaft würzen",
+      "Schnittlauch oder Petersilie darüberstreuen",
+      "Erfasst von: Ingeborg, am 14.11.2019"
+    ],
+    "image": "images/vegetables.webp",
+    "imageIsIllustration": true,
+    "source": "Wikibooks-Mitwirkende · CC BY-SA 4.0 · strukturiert übernommen",
+    "sourceUrl": "https://de.wikibooks.org/w/index.php?title=Kochbuch/_Aubergine_mit_Salsa&oldid=897265",
+    "canonicalUrl": "https://de.wikibooks.org/wiki/Kochbuch/_Aubergine_mit_Salsa",
+    "tags": [
+      "Vegetarisch",
+      "Gemüse"
+    ],
+    "fetchedAt": "2026-09-13T09:17:19.915Z"
+  }
+]
