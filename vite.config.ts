@@ -6,6 +6,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_');
   return {
     base: env.VITE_BASE_PATH || '/',
+    build: { outDir: 'dist/client' },
     plugins: [react(), VitePWA({
       registerType: 'prompt',
       includeAssets: ['icon.svg', 'icon-192.png', 'icon-512.png', 'images/*'],
