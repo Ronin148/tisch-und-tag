@@ -94,14 +94,15 @@
   .add-shopping { flex-wrap: wrap; padding: 12px; }
   .add-shopping input { font-size: 16px; min-height: 44px; }
   .add-shopping .btn { width: 100%; }
-  .modal, .modal.wide { width: calc(100% - 16px); max-height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
+  .modal, .modal.wide { width: calc(100% - 16px); max-width: calc(100% - 16px); max-height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
   .modal-head { gap: 10px; padding: 14px 16px; }
-  .modal-head h2 { font-size: 23px; }
+  .modal-head h2 { font-size: 23px; min-width: 0; }
+  .modal-head > .icon-btn { flex: 0 0 44px; }
   .modal-body { padding: 22px 16px; }
   .modal-footer { flex-wrap: wrap; padding: 14px 16px max(14px, env(safe-area-inset-bottom)); }
   .modal-footer .btn { flex: 1 1 130px; }
   .modal label, .field-label { font-size: 17px; }
-  .modal label input:not([type=file]), .modal label textarea { font-size: 17px; min-width: 0; }
+  .modal label input:not([type=file]):not([type=checkbox]):not([type=radio]), .modal label textarea { font-size: 17px; min-width: 0; }
   .modal .optional { font-size: 14px; }
   .form-two { grid-template-columns: 1fr; gap: 0; }
   .import-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
