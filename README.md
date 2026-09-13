@@ -4,7 +4,7 @@ Persönliches Rezeptbuch als deutschsprachige, mobile Web-App. Für Safari auf d
 
 ## Funktionen
 
-- **Meine Rezepte:** Fotos/Originalseiten und eigenes Rezeptbild speichern und anzeigen, Text einfügen, Rezepte bearbeiten, Favoriten und frei editierbare Schlagwörter.
+- **Meine Rezepte:** Fotos/Originalseiten und eigenes Rezeptbild speichern und anzeigen, Rezept per Link importieren, Text einfügen, Rezepte bearbeiten, Favoriten und frei editierbare Schlagwörter.
 - **Entdecken:** 15 automatisiert aus dem deutschsprachigen Wikibooks-Kochbuch strukturierte Rezepte, separat vom persönlichen Buch; Filter wie Vegetarisch und Low Carb. Sechs eigene Beispielrezepte in einem separaten Bereich. Live-Suche über TheMealDB in englischer Sprache mit Originalbildern.
 - **Bildübernahme:** Bilder werden beim Import heruntergeladen, komprimiert und als Bilddaten im Rezept gespeichert. Ein fehlgeschlagener Bilddownload wird angezeigt. Bilder bleiben beim Export und Wiederherstellen erhalten.
 - **Fotoimport:** Bis zu sechs Seiten pro Rezept; JPG, PNG, WebP und HEIC. Texterkennung auf dem Gerät mit Tesseract und deutschem Sprachmodell. HEIC wird möglichst nativ, andernfalls lokal über heic2any umgewandelt. Originaldatei-Metadaten werden dabei nicht übernommen. Die erkannten Angaben bleiben vor dem Speichern bearbeitbar.
@@ -16,7 +16,7 @@ Persönliches Rezeptbuch als deutschsprachige, mobile Web-App. Für Safari auf d
 
 Die Veröffentlichung über GitHub Pages ist vorbereitet. Die Repository-Erstellung in GitHub scheiterte am 13.09.2026 mit „Repository creation failed“; deshalb wird eine private Sites-Vorschau vorbereitet. Das eigene GitHub-Repository und die Supabase-Online-Speicherung sind noch nicht eingerichtet. Persönliche Rezeptdaten sind niemals Bestandteil des Git-Repositorys.
 
-Die erste Version importiert kopierten Text von Webseiten, Social-Media-Beschreibungen oder KI-Ausgaben. Sie extrahiert keine Rezepte automatisch aus beliebigen URLs, Instagram-/TikTok-Videos oder geschützten Seiten. Der mitgelieferte Scraper verarbeitet ausgewählte öffentliche Wikibooks-Seiten. Fridge-/Vorratsfoto-Erkennung, automatische Wochenvorschläge, Nährwertberechnung und Thermomix/Cookidoo bleiben spätere Ausbauschritte.
+Der Link-Import liest öffentliche Rezeptseiten aus, wenn sie strukturierte Schema.org-Rezeptdaten enthalten, und speichert ein öffentlich abrufbares Rezeptbild mit. Geschützte Seiten, Instagram-/TikTok-Videos und Seiten ohne strukturierte Rezeptdaten müssen weiterhin per Textimport oder Foto übernommen werden. Der mitgelieferte Scraper verarbeitet ausgewählte öffentliche Wikibooks-Seiten. Fridge-/Vorratsfoto-Erkennung, automatische Wochenvorschläge, Nährwertberechnung und Thermomix/Cookidoo bleiben spätere Ausbauschritte.
 
 Tags sind redaktionelle oder persönliche Schlagwörter. „Low Carb“ ist keine berechnete Nährwertangabe. Fehlende Portionszahlen werden klar als vorläufig gekennzeichnet. Deutsche Katalogbilder sind Symbolbilder und als solche beschriftet. TheMealDB liefert englische Originaltexte und häufig keine Portionszahl oder Zeitangabe.
 
@@ -70,4 +70,4 @@ Diese Startversion sichert bis zu 15 MB pro Kochbuch als privaten Datensatz. Fü
 
 ## Prüfung
 
-36 automatisierte Prüfungen decken Rezept- und Mengenimport, Portionsberechnung, Wochenabgrenzung, Sicherungsvalidierung, Bildübernahme, getrennten Katalog, fehlerhafte Web-Daten sowie echte PostgreSQL-RLS-Regeln in PGlite ab. Zusätzlich Produktions-Build und GitHub-Unterpfad prüfen. Ein Test an einem physischen iPhone ist noch offen. Die Supabase-Anbindung wurde bisher nur lokal auf Datenbankebene, nicht mit einem eingerichteten Cloud-Projekt geprüft.
+38 automatisierte Prüfungen decken Rezept- und Mengenimport, Portionsberechnung, Wochenabgrenzung, Sicherungsvalidierung, Bildübernahme, Link-Import, getrennten Katalog, fehlerhafte Web-Daten sowie echte PostgreSQL-RLS-Regeln in PGlite ab. Zusätzlich Produktions-Build und GitHub-Unterpfad prüfen. Ein Test an einem physischen iPhone ist noch offen. Die Supabase-Anbindung wurde bisher nur lokal auf Datenbankebene, nicht mit einem eingerichteten Cloud-Projekt geprüft.

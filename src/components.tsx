@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { X, Camera, ClipboardPaste, Pencil, LoaderCircle, ScanText, Plus, Minus, Clock, Users, ExternalLink, ChefHat, Heart, CalendarPlus, Trash2, ArrowRight, ImagePlus, Check } from 'lucide-react';
+import { X, Camera, ClipboardPaste, Pencil, LoaderCircle, ScanText, Plus, Minus, Clock, Users, ExternalLink, ChefHat, Heart, CalendarPlus, Trash2, ArrowRight, ImagePlus, Check, Link as LinkIcon } from 'lucide-react';
 import type { Recipe } from './types';
 import { blankRecipe, ingredientText, parseIngredient, parseRecipeText, safeUrl } from './domain';
 import { compressPhoto, recognizePhotos } from './ocr';
@@ -48,13 +48,15 @@ export function RecipeDetail({ recipe, onClose, onEdit, onPlan, onDelete, onFavo
   </Modal>;
 }
 
-export function RecipeEditor({ recipe, initialTab = 'photo', onClose, onSave }: { recipe?: Recipe; initialTab?: 'photo' | 'text' | 'manual'; onClose: () => void; onSave: (r: Recipe) => Promise<void> }) {
+type ImportTab = 'photo' | 'link' | 'text' | 'manual';
+
+export function RecipeEditor({ recipe, initialTab = 'photo', onClose, onSave }: { recipe?: Recipe; initialTab?: ImportTab; onClose: () => void; onSave: (r: Recipe) => Promise<void> }) {
   const [draft, setDraft] = useState<Recipe>(() => recipe ? structuredClone(recipe) : blankRecipe());
-  const [tab, setTab] = useState(recipe ? 'manual' : initialTab);
+  const [tab, setTab] = useState<ImportTab>(recipe ? 'manual' : initialTab);
   const [ingredients, setIngredients] = useState(recipe?.ingredients.map(i => ingredientText(i)).join('\n') || '');
   const [steps, setSteps] = useState(recipe?.steps.join('\n\n') || '');
   const [tagText, setTagText] = useState(recipe?.tags.join(', ') || '');
-  const [raw, setRaw] = useState(''); const [error, setError] = useState('');
+  const [raw, setRaw] = useState(''); const [link, setLink] = useState(''); const [error, setError] = useState('');
   const [notice, setNotice] = useState(''); const [busy, setBusy] = useState(false);
   const [saving, setSaving] = useState(false); const [progress, setProgress] = useState({ label: '', value: 0 });
   const [dirty, setDirty] = useState(false); const [confirmClose, setConfirmClose] = useState(false);
@@ -68,6 +70,25 @@ export function RecipeEditor({ recipe, initialTab = 'photo', onClose, onSave }: 
     setIngredients(parsed.ingredients?.map(i => ingredientText(i)).join('\n') || ''); setSteps(parsed.steps?.join('\n\n') || '');
     setDirty(true); setTab('manual'); setNotice('Bitte Titel, Mengen und Schritte kurz prüfen. Die automatische Zuordnung kann Fehler enthalten.');
   };
+  async function importLink() {
+    const value = link.trim();
+    if (!value) return;
+    setError(''); setNotice(''); setBusy(true);
+    try {
+      const response = await fetch('/api/import-recipe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ url: value }), signal: AbortSignal.timeout(25000) });
+      const payload = await response.json().catch(() => null) as { recipe?: Recipe; error?: string } | null;
+      if (!response.ok || !payload?.recipe) throw new Error(payload?.error || 'Der Link konnte nicht importiert werden.');
+      const next = payload.recipe;
+      setDraft(d => ({ ...d, ...next, id: d.id, favorite: false, sample: false, createdAt: d.createdAt }));
+      setIngredients(next.ingredients.map(i => ingredientText(i)).join('\n'));
+      setSteps(next.steps.join('\n\n'));
+      setTagText(next.tags.join(', '));
+      setRaw('');
+      setDirty(true); setTab('manual');
+      setNotice(next.image ? 'Bitte Rezept kurz prüfen. Das Bild wurde mitgespeichert.' : 'Bitte Rezept kurz prüfen. Das Bild konnte nicht automatisch gespeichert werden.');
+    } catch (e) { setError((e as Error).message); }
+    finally { setBusy(false); }
+  }
   async function addPhotos(files: FileList | null) {
     if (!files?.length) return; setError(''); setBusy(true);
     try {
@@ -98,12 +119,13 @@ export function RecipeEditor({ recipe, initialTab = 'photo', onClose, onSave }: 
   }
   return <Modal title={recipe ? 'Rezept bearbeiten' : 'Ein neues Lieblingsrezept'} onClose={requestClose} wide>
     <form onSubmit={save}><div className="modal-body editor">
-      {!recipe && <><p className="muted intro-copy">Von der Magazinseite bis zum kopierten Rezept. Alles findet hier seinen Platz.</p><div className="import-tabs" role="tablist" aria-label="Rezept hinzufügen">{([{ id: 'photo', icon: Camera, text: 'Foto' }, { id: 'text', icon: ClipboardPaste, text: 'Text einfügen' }, { id: 'manual', icon: Pencil, text: 'Selbst schreiben' }] as const).map(t => <button key={t.id} type="button" role="tab" aria-selected={tab === t.id} disabled={busy} className={tab === t.id ? 'active' : ''} onClick={() => setTab(t.id)}><t.icon size={18} />{t.text}</button>)}</div></>}
+      {!recipe && <><p className="muted intro-copy">Von der Magazinseite bis zum Rezeptlink. Alles findet hier seinen Platz.</p><div className="import-tabs" role="tablist" aria-label="Rezept hinzufügen">{([{ id: 'photo', icon: Camera, text: 'Foto' }, { id: 'link', icon: LinkIcon, text: 'Link' }, { id: 'text', icon: ClipboardPaste, text: 'Text' }, { id: 'manual', icon: Pencil, text: 'Selbst' }] as const).map(t => <button key={t.id} type="button" role="tab" aria-selected={tab === t.id} disabled={busy} className={tab === t.id ? 'active' : ''} onClick={() => setTab(t.id)}><t.icon size={18} />{t.text}</button>)}</div></>}
       {tab === 'photo' && <section className="import-panel"><label className="upload-zone"><span className="round-icon"><Camera size={28} strokeWidth={1.5} /></span><strong>Deine Rezeptseiten, bitte.</strong><span>Fotos auswählen oder mit dem Handy aufnehmen</span><small>Bis zu 6 Bilder · JPG, PNG, WebP oder HEIC</small><input type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple disabled={busy} onChange={e => { void addPhotos(e.target.files); e.target.value = ''; }} /></label>
         {draft.photos.length > 0 && <><div className="photo-strip">{draft.photos.map((p, i) => <div key={i}><img src={p} alt={`Rezeptseite ${i + 1}`} /><button type="button" disabled={busy} aria-label={`Foto ${i + 1} entfernen`} onClick={() => change({ photos: draft.photos.filter((_, n) => n !== i) })}><X size={14} /></button></div>)}</div><button type="button" className="btn primary full" disabled={busy} onClick={() => void scan()}>{busy ? <LoaderCircle className="spin" size={18} /> : <ScanText size={18} />}Text aus Fotos lesen</button><button type="button" className="text-btn center" disabled={busy} onClick={() => { if (!draft.title) change({ title: 'Mein fotografiertes Rezept' }); setTab('manual'); }}>Foto speichern und Angaben selbst ergänzen <ArrowRight size={15} /></button></>}
         <p className="fineprint">Die Texterkennung läuft auf deinem Gerät. Fotografiere möglichst gerade, hell und ohne Schatten.</p>{busy && <div role="status"><p>{progress.label || 'Fotos werden vorbereitet …'}</p><progress value={progress.value} max={1} /></div>}
       </section>}
-      {tab === 'text' && <section className="import-panel"><label>Rezepttext<textarea className="raw-text" value={raw} maxLength={60000} onChange={e => { setRaw(e.target.value); setDirty(true); }} placeholder={'Rezeptname\nFür 2 Portionen\n\nZutaten\n200 g Pasta\n400 g Tomaten\n\nZubereitung\n1. Tomaten halbieren …'} /></label><p className="fineprint">Kopiere den Rezepttext aus einer Webseite, Instagram, TikTok oder einem KI-Chat. Mit den Überschriften „Zutaten“ und „Zubereitung“ klappt die Zuordnung am besten. Einen Link allein kann diese Version noch nicht auslesen.</p><button type="button" className="btn primary full" disabled={!raw.trim()} onClick={() => importText(raw)}><ClipboardPaste size={18} />In Rezept umwandeln</button></section>}
+      {tab === 'link' && <section className="import-panel"><label>Rezeptlink<input type="url" value={link} maxLength={2000} autoComplete="url" inputMode="url" placeholder="https://…" onChange={e => { setLink(e.target.value); setDirty(true); }} /></label><p className="fineprint">Gut geeignet sind öffentliche Rezeptseiten mit strukturierten Rezeptdaten. Geschützte Seiten, Instagram und TikTok liefern oft keinen sauberen Rezepttext.</p><button type="button" className="btn primary full" disabled={busy || !link.trim()} onClick={() => void importLink()}>{busy ? <LoaderCircle className="spin" size={18} /> : <LinkIcon size={18} />}Rezept aus Link lesen</button></section>}
+      {tab === 'text' && <section className="import-panel"><label>Rezepttext<textarea className="raw-text" value={raw} maxLength={60000} onChange={e => { setRaw(e.target.value); setDirty(true); }} placeholder={'Rezeptname\nFür 2 Portionen\n\nZutaten\n200 g Pasta\n400 g Tomaten\n\nZubereitung\n1. Tomaten halbieren …'} /></label><p className="fineprint">Kopiere den Rezepttext aus einer Webseite, Instagram, TikTok oder einem KI-Chat. Mit den Überschriften „Zutaten“ und „Zubereitung“ klappt die Zuordnung am besten.</p><button type="button" className="btn primary full" disabled={!raw.trim()} onClick={() => importText(raw)}><ClipboardPaste size={18} />In Rezept umwandeln</button></section>}
       {tab === 'manual' && <>
         {notice && <div className="notice">{notice}</div>}
         <label>Rezeptname<input autoComplete="off" required maxLength={150} value={draft.title} placeholder="Zum Beispiel: Omas Zitronenpasta" onChange={e => change({ title: e.target.value })} /></label>
