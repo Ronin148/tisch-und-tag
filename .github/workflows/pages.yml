@@ -27,11 +27,12 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_IMPORT_API_URL: https://tisch-und-tag-joel.ronin120.chatgpt.site
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist/client
   deploy:
     if: github.event_name != 'pull_request'
     needs: build

@@ -75,7 +75,8 @@ export function RecipeEditor({ recipe, initialTab = 'photo', onClose, onSave }: 
     if (!value) return;
     setError(''); setNotice(''); setBusy(true);
     try {
-      const response = await fetch('/api/import-recipe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ url: value }), signal: AbortSignal.timeout(25000) });
+      const apiBase = (import.meta.env.VITE_IMPORT_API_URL || '').replace(/\/$/, '');
+      const response = await fetch(`${apiBase}/api/import-recipe`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ url: value }), signal: AbortSignal.timeout(25000) });
       const payload = await response.json().catch(() => null) as { recipe?: Recipe; error?: string } | null;
       if (!response.ok || !payload?.recipe) throw new Error(payload?.error || 'Der Link konnte nicht importiert werden.');
       const next = payload.recipe;

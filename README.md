@@ -14,7 +14,7 @@ Persönliches Rezeptbuch als deutschsprachige, mobile Web-App. Für Safari auf d
 
 ## Aktueller Stand und Grenzen
 
-Die Veröffentlichung über GitHub Pages ist vorbereitet. Die Repository-Erstellung in GitHub scheiterte am 13.09.2026 mit „Repository creation failed“; deshalb wird eine private Sites-Vorschau vorbereitet. Das eigene GitHub-Repository und die Supabase-Online-Speicherung sind noch nicht eingerichtet. Persönliche Rezeptdaten sind niemals Bestandteil des Git-Repositorys.
+Die Veröffentlichung über GitHub Pages ist vorbereitet. Der Link-Import nutzt auf GitHub Pages den veröffentlichten Sites-Worker als Backend, weil GitHub Pages selbst keine Serverfunktion ausführt. Die Supabase-Online-Speicherung ist noch nicht eingerichtet. Persönliche Rezeptdaten sind niemals Bestandteil des Git-Repositorys.
 
 Der Link-Import liest öffentliche Rezeptseiten aus, wenn sie strukturierte Schema.org-Rezeptdaten enthalten, und speichert ein öffentlich abrufbares Rezeptbild mit. Geschützte Seiten, Instagram-/TikTok-Videos und Seiten ohne strukturierte Rezeptdaten müssen weiterhin per Textimport oder Foto übernommen werden. Der mitgelieferte Scraper verarbeitet ausgewählte öffentliche Wikibooks-Seiten. Fridge-/Vorratsfoto-Erkennung, automatische Wochenvorschläge, Nährwertberechnung und Thermomix/Cookidoo bleiben spätere Ausbauschritte.
 
